@@ -1,27 +1,37 @@
 {
-  "name": "github-analytics",
+  "name": "express-server-skeleton",
   "version": "1.0.0",
-  "description": "Github analytics",
-  "main": "app.js",
+  "description": "Express server skeleton written in ES6",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon --watch app.js --watch src",
-    "test": "mocha"
+    "start": "babel-node server/index.js",
+    "dev": "nodemon --watch server --exec babel-node server/index.js",
+    "build": "webpack",
+    "test": "mocha --require @babel/register"
   },
   "author": "Paul Nta",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
     "chai": "^4.2.0",
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "mocha": "^5.2.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "node-fetch": "^2.2.0",
-    "dotenv": "^6.0.0"
+    "source-map-support": "^0.5.9"
   }
 }

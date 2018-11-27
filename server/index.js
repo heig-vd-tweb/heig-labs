@@ -1,7 +1,7 @@
 // loads environment variables
-require('dotenv/config');
-const express = require('express');
-const cors = require('cors');
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 // Enable CORS for the client app
 app.use(cors());
 
+// eslint-disable-next-line no-unused-vars
 app.get('/', (req, res, next) => {
   res.send('Hello express!');
 });
@@ -21,7 +22,8 @@ app.use((req, res, next) => {
 });
 
 // Error handler
-app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.status || 500);
   res.send(err.message);
