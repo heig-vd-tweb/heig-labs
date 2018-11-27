@@ -1,13 +1,25 @@
 // loads environment variables
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
+import { ApolloServer, gql } from 'apollo-server-express';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
-// Enable CORS for the client app
-app.use(cors());
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`;
+
+const resolvers = {
+  Query: {
+    hello: () => 'world',
+  },
+};
+
+const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({ app });
 
 // eslint-disable-next-line no-unused-vars
 app.get('/', (req, res, next) => {
