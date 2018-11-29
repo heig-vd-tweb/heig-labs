@@ -1,28 +1,18 @@
 // loads environment variables
 import 'dotenv/config';
 import express from 'express';
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
+import typeDefs from './graphql/schema';
+import resolvers from './graphql/resolvers';
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => 'world',
-  },
-};
-
 const server = new ApolloServer({ typeDefs, resolvers });
 server.applyMiddleware({ app });
 
-// eslint-disable-next-line no-unused-vars
-app.get('/', (req, res, next) => {
+
+app.get('/', (req, res) => {
   res.send('Hello express!');
 });
 
