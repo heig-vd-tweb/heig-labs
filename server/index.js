@@ -8,7 +8,13 @@ import resolvers from './graphql/resolvers';
 const app = express();
 const port = process.env.PORT || 5000;
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  introspection: true,
+  playground: true,
+});
+
 server.applyMiddleware({ app });
 
 
