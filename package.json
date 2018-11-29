@@ -5,11 +5,10 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node build/server.js",
-    "start:dev": "babel-node server/index.js",
     "dev": "nodemon --watch server --exec babel-node server/index.js",
     "build": "webpack",
     "test": "mocha --require @babel/register",
-    "postinstall": "yarn build"
+    "heroku-postbuild": "yarn build"
   },
   "author": "Paul Nta",
   "license": "ISC",
