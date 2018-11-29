@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  // Enables playground and introspection in production
   introspection: true,
   playground: true,
 });
