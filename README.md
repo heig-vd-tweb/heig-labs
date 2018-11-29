@@ -3,9 +3,9 @@ A web app for reviewing students projects
 
 ## Running the app
 
-2. Run `yarn install` to install all the project dependencies
+1. Run `yarn install` to install all the project dependencies
 
-3. Then, hit `yarn dev` to start the server in development mode.
+2. Then, hit `yarn dev` to start the server in development mode.
 
 ## Available Scripts
 
