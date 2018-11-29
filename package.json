@@ -4,10 +4,11 @@
   "description": "Express server skeleton written in ES6",
   "main": "server/index.js",
   "scripts": {
-    "start": "babel-node server/index.js",
+    "start": "node build/server.js",
     "dev": "nodemon --watch server --exec babel-node server/index.js",
+    "test": "mocha --require @babel/register",
     "build": "webpack",
-    "test": "mocha --require @babel/register"
+    "heroku-postbuild": "yarn build"
   },
   "author": "Paul Nta",
   "license": "ISC",
@@ -28,7 +29,6 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "node-fetch": "^2.2.0",

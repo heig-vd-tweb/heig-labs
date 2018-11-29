@@ -1,13 +1,9 @@
 // loads environment variables
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
-
-// Enable CORS for the client app
-app.use(cors());
 
 // eslint-disable-next-line no-unused-vars
 app.get('/', (req, res, next) => {
