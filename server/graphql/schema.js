@@ -4,11 +4,11 @@ import { gql } from 'apollo-server-express';
  */
 export default gql`
   type Application {
-    id: ID!,
-    name: String,
-    description: String,
-    authors: [User],
-    reviews: [Review],
+    id: ID!
+    name: String
+    description: String
+    authors: [User]
+    reviews: [Review]
     score: Int!  
   }
 
@@ -22,13 +22,26 @@ export default gql`
     id: ID!
     stars: Int!
     author: User!
-    comment: String,
-    application: Application,
+    comment: String
+    application: Application
   }
 
   type Query {
-    # Get all applications
-    applications: [Application],
-    reviews: [Review],
+    # Get the list of all applications
+    applications: [Application]
+    # Get a single application
+    application(id: ID!): Application
+  }
+
+
+  input ReviewInput {
+    stars: Int!,
+    comment: String!
+    authorId: ID,
+    applicationId: ID,
+  }
+
+  type Mutation {
+    addReview(data: ReviewInput!): Review
   }
 `;

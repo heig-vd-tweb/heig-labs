@@ -3,7 +3,19 @@ import { apps, reviews, users } from '../database';
 export default {
   Query: {
     applications: () => apps,
-    reviews: () => reviews,
+  },
+  Mutation: {
+    addReview: (_, { data }) => {
+      const review = {
+        id: String(reviews.length),
+        stars: data.stars,
+        comment: data.comment,
+        author: data.authorId,
+        applicationId: data.applicationId,
+      };
+      reviews.push(review);
+      return review;
+    },
   },
   Application: {
     authors: (app) => {
