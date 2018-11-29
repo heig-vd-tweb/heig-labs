@@ -4,10 +4,12 @@
   "description": "Express server skeleton written in ES6",
   "main": "server/index.js",
   "scripts": {
-    "start": "babel-node server/index.js",
+    "start": "node build/server.js",
+    "start:dev": "babel-node server/index.js",
     "dev": "nodemon --watch server --exec babel-node server/index.js",
     "build": "webpack",
-    "test": "mocha --require @babel/register"
+    "test": "mocha --require @babel/register",
+    "postinstall": "yarn build"
   },
   "author": "Paul Nta",
   "license": "ISC",
