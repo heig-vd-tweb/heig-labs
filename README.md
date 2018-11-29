@@ -1,36 +1,27 @@
-# Express server skeleton
-A minimal express server
+# heig-labs
+A web app for reviewing students projects
 
 ## Running the app
 
-### 1. Clone this repo
+2. Run `yarn install` to install all the project dependencies
 
-```sh
-$ git clone https://github.com/heig-vd-tweb/express-server-skeleton.git
-```
+3. Then, hit `yarn dev` to start the server in development mode.
 
-### 2. Install project dependencies
-```sh
-$ yarn install
-```
-### 3. Run the app
+## Available Scripts
 
-You can start the server by running
-```$
-$ yarn start
-```
+In the project directory, you can run:
 
-or you can start the server in development mode. This command uses [nodemon](https://github.com/remy/nodemon) to watch changes in your code and automatically restart the server.
-```sh
-$ yarn dev
-```
+### `yarn dev`
 
-### 4. Build the app
+Runs the app in the development mode.<br>
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
-```
-$ yarn build
-```
+The server will restart when you make edits.
 
-Builds the server for production to the `build` folder.
 
-Finally, use `npm test` to run tests.
+### `yarn build`
+
+Builds the app for production to the `build` folder.<br>
+It correctly bundles the project in production mode and optimizes the build for the best performance.
+
+As the server is written in ES6, this command uses webpack to compile the project to ES5.
