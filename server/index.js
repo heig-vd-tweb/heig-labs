@@ -43,5 +43,5 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`🚀 Magic happens at http://localhost:${port}`);
 });
