@@ -1,27 +1,26 @@
-# heig-labs
+# heig labs
 A web app for reviewing students projects
 
-## Running the app
+## Running the app locally
 
-1. Run `yarn install` to install all the project dependencies
+This project includes a frontend bootstrapped with [create-react-app](https://github.com/facebook/create-react-app) and a backend written in Node.js with full ES6 support, thanks to babel and webpack.
 
-2. Then, hit `yarn dev` to start the server in development mode.
+During development the server and the client run concurrently. This is required because the client use its own development server in order to have faster builds and hot reload. In production the client is built as static app and served by the express server.
 
-## Available Scripts
+### 1. Install project dependencies
 
-In the project directory, you can run:
+Use the following command to install server and client packages
 
-### `yarn dev`
+```sh
+yarn install
+cd client && yarn install
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
+### 2. Run the app
 
-The server will restart when you make edits.
+Run the following command to start both the client and the server
 
+```
+yarn start
+```
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles the project in production mode and optimizes the build for the best performance.
-
-As the server is written in ES6, this command uses webpack to compile the project to ES5.
