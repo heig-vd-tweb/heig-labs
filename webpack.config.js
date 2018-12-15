@@ -47,4 +47,7 @@ module.exports = {
   // in our final bundle. `nodeExternals` tells webpack to
   // ignore all `node_modules` dependencies.
   externals: [nodeExternals()],
+  node: {
+    __dirname: false,
+  },
 };
