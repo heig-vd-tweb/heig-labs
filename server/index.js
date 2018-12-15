@@ -1,21 +1,37 @@
 // loads environment variables
 import 'dotenv/config';
+import path from 'path';
 import express from 'express';
+import { ApolloServer } from 'apollo-server-express';
+import typeDefs from './graphql/schema';
+import resolvers from './graphql/resolvers';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
+const CLIENT_PATH = path.join(__dirname, '..', 'client', 'build');
 
-// eslint-disable-next-line no-unused-vars
-app.get('/', (req, res, next) => {
-  res.send('Hello express!');
+// Serve static assets only in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(CLIENT_PATH));
+}
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  // Enables playground and introspection in production
+  introspection: true,
+  playground: true,
 });
 
-// Forward 404 to error handler
-app.use((req, res, next) => {
-  const error = new Error('Not found');
-  error.status = 404;
-  next(error);
-});
+
+server.applyMiddleware({ app });
+
+// Serve single page app only in production
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(CLIENT_PATH, 'index.html'));
+  });
+}
 
 // Error handler
 // eslint-disable-next-line no-unused-vars
